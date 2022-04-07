@@ -14,7 +14,7 @@ If you'd like to follow along you'll need the following:
   * Instructions included below to create the storage account
 * A GitHub account and a forked instance of this repository
 * The drive to be awesome!
-  * Oh wait, you already ARE **awesome**! Well done.
+  * Oh wait, you already ARE **awesome**! Well done. 
 
 ## Creating the Azure AD Service Principal and Storage Account
 

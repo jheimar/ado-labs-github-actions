@@ -62,6 +62,14 @@ resource "random_integer" "name_suffix" {
 #  zone_redundant = true
 #}
 
+resource "azurerm_container_registry" "acr" {
+  name                = "acrKallSony"
+  location                     = "eastus2"
+  resource_group_name          = "kallsony_rg"
+  sku                 = "Basic"
+  admin_enabled       = false
+}
+
 ##################################################################################
 # APP SERVICE
 ##################################################################################

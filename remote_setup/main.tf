@@ -20,12 +20,12 @@ data "azuread_client_config" "current" {}
 
 resource "azuread_application" "gh_actions" {
   display_name = local.service_principal_name
-  owners = [ data.azuread_client_config.current.object_id ]
+  owners       = [data.azuread_client_config.current.object_id]
 }
 
 resource "azuread_service_principal" "gh_actions" {
   application_id = azuread_application.gh_actions.application_id
-  owners = [ data.azuread_client_config.current.object_id ]
+  owners         = [data.azuread_client_config.current.object_id]
 }
 
 resource "azuread_service_principal_password" "gh_actions" {

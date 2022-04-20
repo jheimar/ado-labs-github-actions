@@ -60,19 +60,6 @@ resource "azurerm_mssql_database" "sqldb" {
   read_scale     = true
   sku_name       = "BC_Gen5_2"
   zone_redundant = true
-
-  extended_auditing_policy {
-    storage_endpoint                        = azurerm_storage_account.msqlserver.primary_blob_endpoint
-    storage_account_access_key              = azurerm_storage_account.msqlserver.primary_access_key
-    storage_account_access_key_is_secondary = true
-    retention_in_days                       = 6
-  }
-
-
-  tags = {
-    foo = "bar"
-  }
-
 }
 
 ##################################################################################

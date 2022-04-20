@@ -51,9 +51,9 @@ resource "azurerm_mssql_server" "msqlserver" {
   administrator_login_password = "4-v3ry-53cr37-p455w0rd"
 }
 
-resource "azurerm_mssql_database" "test" {
+resource "azurerm_mssql_database" "sqldb" {
   name           = "acctest-db-d"
-  server_id      = azurerm_mssql_server.example.id
+  server_id      = azurerm_mssql_server.msqlserver.id
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
   max_size_gb    = 4

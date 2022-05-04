@@ -14,7 +14,7 @@ resource "random_integer" "name_suffix" {
   max = 99999
 }*/
 
-/*resource "azurerm_kubernetes_cluster" "kallsony_aks" {
+resource "azurerm_kubernetes_cluster" "kallsony_aks" {
   name                = "kallsony-aks1"
   location            = "eastus"
   resource_group_name = "kallsony_rg"
@@ -38,7 +38,15 @@ output "client_certificate" {
 output "kube_config" {
   value     = azurerm_kubernetes_cluster.kallsony_aks.kube_config_raw
   sensitive = true
-}*/
+}
+
+resource "azurerm_container_registry" "acr" {
+  name                = "acrKallSony"
+  location                     = "eastus2"
+  resource_group_name          = "kallsony_rg"
+  sku                 = "Basic"
+  admin_enabled       = false
+}
 
 
 #resource "azurerm_mssql_server" "msqlserver" {
@@ -61,13 +69,7 @@ output "kube_config" {
 #  zone_redundant = true
 #}
 
-#resource "azurerm_container_registry" "acr" {
-#  name                = "acrKallSony"
-#  location                     = "eastus2"
-#  resource_group_name          = "kallsony_rg"
-##  sku                 = "Basic"
-#  admin_enabled       = false
-#}
+
 
 ##################################################################################
 # APP SERVICE

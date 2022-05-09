@@ -13,7 +13,7 @@ resource "random_integer" "name_suffix" {
   min = 10000
   max = 99999
 }*/
-/*
+
 resource "azurerm_kubernetes_cluster" "kallsony_aks" {
   name                = "kallsony-aks1"
   location            = "eastus"
@@ -46,7 +46,7 @@ resource "azurerm_container_registry" "acr" {
   resource_group_name          = "kallsony_rg"
   sku                 = "Basic"
   admin_enabled       = false
-}*/
+}
 
 
 #resource "azurerm_mssql_server" "msqlserver" {

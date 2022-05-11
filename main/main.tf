@@ -78,7 +78,7 @@ resource "azurerm_mysql_database" "database_pica" {
 
 resource "azurerm_mysql_firewall_rule" "firewall_rule_mysql" {
   name                = "FirewallRule1"
-  resource_group_name = azurerm_resource_group.resource_group_name
+  resource_group_name = azurerm_mysql_server.resource_group_name
   server_name         = azurerm_mysql_server.mysql_server.name
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"

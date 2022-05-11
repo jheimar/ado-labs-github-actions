@@ -48,6 +48,45 @@ resource "azurerm_container_registry" "acr" {
   admin_enabled       = false
 }*/
 
+resource "azurerm_mysql_server" "mysql_server" {
+  name                = "kallsony-db"
+  location            = "eastus2"
+  resource_group_name = "kallsony_rg"
+
+  administrator_login          = "pica_db"
+  administrator_login_password = "P1c4_DB_k4llS0"
+
+  sku_name   = "B_Gen5_2"
+  storage_mb = 5120
+  version    = "5.7"
+
+  auto_grow_enabled                 = true
+  backup_retention_days             = 7
+  geo_redundant_backup_enabled      = false
+  infrastructure_encryption_enabled = false
+  public_network_access_enabled     = true
+  ssl_enforcement_enabled           = false
+}
+
+resource "azurerm_mysql_database" "database_pica" {
+  name                = local.db_pica_name
+  resource_group_name = azurerm_resource_group.app_service.name
+  server_name         = azurerm_mysql_server.mysql_server.name
+  charset             = "utf8"
+  collation           = "utf8_unicode_ci"
+}
+
+resource "azurerm_mysql_firewall_rule" "firewall_rule_mysql" {
+  name                = "FirewallRule1"
+  resource_group_name = azurerm_resource_group.app_service.name
+  server_name         = azurerm_mysql_server.mysql_server.name
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
+}
+
+
+
+
 
 #resource "azurerm_mssql_server" "msqlserver" {
 #  name                         = "kallsony-sqlserver"
@@ -64,7 +103,7 @@ resource "azurerm_container_registry" "acr" {
 #  collation      = "SQL_Latin1_General_CP1_CI_AS"
 #  license_type   = "LicenseIncluded"
 # max_size_gb    = 4
- # read_scale     = true
+# read_scale     = true
 #  sku_name       = "BC_Gen5_2"
 #  zone_redundant = true
 #}

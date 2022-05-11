@@ -69,7 +69,7 @@ resource "azurerm_mysql_server" "mysql_server" {
 }
 
 resource "azurerm_mysql_database" "database_pica" {
-  name                = local.db_pica_name
+  name                = "kallsonydb-pica"
   resource_group_name = "kallsony_rg"
   server_name         = azurerm_mysql_server.mysql_server.name
   charset             = "utf8"

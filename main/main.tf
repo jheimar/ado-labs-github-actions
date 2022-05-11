@@ -70,7 +70,7 @@ resource "azurerm_mysql_server" "mysql_server" {
 
 resource "azurerm_mysql_database" "database_pica" {
   name                = local.db_pica_name
-  resource_group_name = azurerm_mysql_server.resource_group_name
+  resource_group_name = "kallsony_rg"
   server_name         = azurerm_mysql_server.mysql_server.name
   charset             = "utf8"
   collation           = "utf8_unicode_ci"
@@ -78,7 +78,7 @@ resource "azurerm_mysql_database" "database_pica" {
 
 resource "azurerm_mysql_firewall_rule" "firewall_rule_mysql" {
   name                = "FirewallRule1"
-  resource_group_name = azurerm_mysql_server.resource_group_name
+  resource_group_name = "kallsony_rg"
   server_name         = azurerm_mysql_server.mysql_server.name
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"

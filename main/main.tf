@@ -13,7 +13,7 @@ resource "random_integer" "name_suffix" {
   min = 10000
   max = 99999
 }*/
-
+/*
 resource "azurerm_kubernetes_cluster" "kallsony_aks" {
   name                = "kallsony-aks1"
   location            = "eastus"
@@ -83,7 +83,7 @@ resource "azurerm_mysql_firewall_rule" "firewall_rule_mysql" {
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"
 }
-
+*/
 
 
 

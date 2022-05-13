@@ -13,7 +13,7 @@ resource "random_integer" "name_suffix" {
   min = 10000
   max = 99999
 }*/
-
+/*
 resource "azurerm_kubernetes_cluster" "kallsony_aks" {
   name                = "kallsony-aks1"
   location            = "eastus"

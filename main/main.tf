@@ -82,7 +82,7 @@ resource "azurerm_mysql_firewall_rule" "firewall_rule_mysql" {
   server_name         = azurerm_mysql_server.mysql_server.name
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"
-}
+}*/
 
 
 

@@ -15,10 +15,10 @@ resource "random_integer" "name_suffix" {
 }*/
 
 resource "azurerm_kubernetes_cluster" "kallsony_aks" {
-  name                = "kallsony-aks1"
+  name                = "kallsony-aks2"
   location            = "eastus"
   resource_group_name = "kallsony_rg"
-  dns_prefix          = "kallsonyks1"
+  dns_prefix          = "kallsonyks2"
   default_node_pool {
     name       = "default"
     node_count = 1

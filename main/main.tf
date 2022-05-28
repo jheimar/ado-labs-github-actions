@@ -46,8 +46,8 @@ resource "azurerm_container_registry" "acr" {
   resource_group_name          = "kallsony_rg"
   sku                 = "Basic"
   admin_enabled       = false
-}
-/*
+} 
+/* --
 resource "azurerm_mysql_server" "mysql_server" {
   name                = "kallsony-db"
   location            = "eastus2"
